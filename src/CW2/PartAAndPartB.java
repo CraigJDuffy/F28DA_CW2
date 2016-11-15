@@ -1,16 +1,38 @@
 package CW2;
+import org.jgrapht.alg.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
+import java.util.Scanner;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-public class PartA {
+public class PartAAndPartB {
 
-	public PartA() {
+	public PartAAndPartB() {
 		
 	}
 
 	public static void main(String[] args) {
 		SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> flightGraph = createFlightGraph();
 		
-		System.out.println(flightGraph.toString());
+		System.out.print("The following airports are used: \n");
+		System.out.println(flightGraph.vertexSet().toString());
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("\nPlease enter start airport: ");
+		
+		String startVertex = scanner.next();
+		System.out.print("\nPlease enter the destination airport: ");
+		
+		String destinationVertex = scanner.next();
+		scanner.close();
+		
+		DijkstraShortestPath d = new DijkstraShortestPath(flightGraph, startVertex, destinationVertex);
+		String path = d.findPathBetween(flightGraph, startVertex, destinationVertex).toString();
+		System.out.print("The shortest (i.e cheapest path) is as follows: " + path);
+		
+		Object[] pathEdgeListArray = d.getPathEdgeList().toArray();
+		
+		
+		System.out.print("\nCost of shortest path = " );
+		//System.out.println(flightGraph.toString());
 	}
 	
 	
@@ -90,5 +112,7 @@ public class PartA {
 		return flightGraph; 
 		
 	}
+	
+	
 }
 	
