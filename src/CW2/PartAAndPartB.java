@@ -136,7 +136,7 @@ public class PartAAndPartB {
 		flightGraph.setEdgeWeight(e, 320.00);
 
 		//Returns the Graph
-		return flightGraph; 
+		return flightGraph;
 		
 	}
 	
