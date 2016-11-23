@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-public class PartAAndPartB {
+public class PartB {
 
-	public PartAAndPartB() {
+	public PartB() {
 		
 	}
 	
@@ -46,20 +46,14 @@ public class PartAAndPartB {
 		}
 		System.out.print("The shortest (i.e cheapest path) is as follows: " + path);
 		
-		Iterator i = d.findPathBetween(flightGraph, startVertex, destinationVertex).listIterator();
+		Iterator i = DijkstraShortestPath.findPathBetween(flightGraph, startVertex, destinationVertex).listIterator();
 		Double sum = 0.00;
 		while(i.hasNext()){
 			MyEdge edge = (MyEdge)i.next();
 			sum += edge.getWeight2();
-			System.out.println("Hello World:"  + sum);
 		
 		}
-		
-		org.jgrapht.graph.DefaultWeightedEdge edge = new org.jgrapht.graph.DefaultWeightedEdge();
-		//edge.setE
-		
 		System.out.print("\nCost of shortest path = " + sum );
-		//System.out.println(flightGraph.toString());
 	}
 	
 	
