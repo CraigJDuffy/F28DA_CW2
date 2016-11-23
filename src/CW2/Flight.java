@@ -2,30 +2,43 @@ package CW2;
 
 import org.jgrapht.graph.DefaultWeightedEdge;
 
+@SuppressWarnings("serial")
+
+/**
+ * This class creates a subclass of the DefaultWeightedEdge called Flight. A
+ * flight object contains the departure and destination vertex along with the
+ * flight number, departure time, arrival time, duration of the flight, and
+ * ticket price.
+ * 
+ * Used in parts D, E, F of the course work.
+ * 
+ * @author craigjduffy
+ *
+ */
+
 public class Flight extends DefaultWeightedEdge {
-	
-	private String departure; 
+
+	private String departure;
 	private String destination;
 	private String flightNumber;
-	private int departureTime;
+	private String departureTime;
 	private double flightDuration;
 	private double ticketPrice;
-	private int arivalTime;
-	
-	public Flight(){ 
-		
+	private String arrivalTime;
+
+	public Flight() {
+
 	}
 
-	public Flight(String departure, String destination, String flightNumber,
-			int departureTime, double flightDuration, double ticketPrice,
-			int arivalTime) {
+	public Flight(String departure, String destination, String flightNumber, String departureTime,
+			double flightDuration, double ticketPrice, String arivalTime) {
 
 		super();
 		this.departure = departure.toLowerCase();
 		this.destination = destination.toLowerCase();
 		this.flightNumber = flightNumber.toUpperCase();
 		this.departureTime = departureTime;
-		this.arivalTime = arivalTime;
+		this.arrivalTime = arivalTime;
 		this.flightDuration = flightDuration;
 		this.ticketPrice = ticketPrice;
 	}
@@ -38,30 +51,29 @@ public class Flight extends DefaultWeightedEdge {
 		return ticketPrice;
 	}
 
-	public int getDepartureTime() {
+	public String getDepartureTime() {
 		return departureTime;
 	}
-	
-	public String getDestination(){ 
-		return destination; 
+
+	public String getDestination() {
+		return destination;
 	}
-	
-	public String getDeparture(){ 
+
+	public String getDeparture() {
 		return departure;
 	}
-	
+
 	/**
-	 * Returns the arrival time of the current flight as 
-	 * a four digit integer. E.g. If your arrival time was
-	 * 2am, this will return 0200.
+	 * Returns the arrival time of the current flight as a four digit integer.
+	 * E.g. If your arrival time was 2am, this will return 0200.
+	 * 
 	 * @return
 	 */
-	public int getArivalTime(){
-		return arivalTime;
+	public String getArrivalTime() {
+		return arrivalTime;
 	}
-	
-	public String getFlightNumber(){
+
+	public String getFlightNumber() {
 		return flightNumber;
 	}
 }
-
