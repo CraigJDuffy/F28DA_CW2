@@ -15,27 +15,40 @@ public class Flight extends DefaultWeightedEdge {
 	public Flight(){ 
 		
 	}
-	public Flight(String flightNumber, int departureTime, double flightDuration, double ticketPrice, int arivalTime){
-	
-	super();
-	this.flightNumber = flightNumber.toUpperCase();
-	this.departureTime = departureTime; 
-	this.arivalTime = arivalTime;
-	this.flightDuration = flightDuration;
-	this.ticketPrice = ticketPrice;
+
+	public Flight(String departure, String destination, String flightNumber,
+			int departureTime, double flightDuration, double ticketPrice,
+			int arivalTime) {
+
+		super();
+		this.departure = departure.toLowerCase();
+		this.destination = destination.toLowerCase();
+		this.flightNumber = flightNumber.toUpperCase();
+		this.departureTime = departureTime;
+		this.arivalTime = arivalTime;
+		this.flightDuration = flightDuration;
+		this.ticketPrice = ticketPrice;
 	}
-	public double getFlightDuration(){ 
+
+	public double getFlightDuration() {
 		return flightDuration;
 	}
-	
-	public double getTicketPrice(){ 
+
+	public double getTicketPrice() {
 		return ticketPrice;
 	}
-	
-	public int getDepartureTime(){
+
+	public int getDepartureTime() {
 		return departureTime;
 	}
 	
+	public String getDestination(){ 
+		return destination; 
+	}
+	
+	public String getDeparture(){ 
+		return departure;
+	}
 	
 	/**
 	 * Returns the arrival time of the current flight as 
